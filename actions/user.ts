@@ -1,7 +1,6 @@
 "use server";
-import { formSchema } from "@/app/(user)/auth/register/page";
 import { db } from "@/lib/db";
-import { User } from "@prisma/client";
+import { formSchema } from "@/lib/zod/user";
 import { z } from "zod";
 
 export const createUser = async (data: z.infer<typeof formSchema>) => {
