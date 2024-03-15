@@ -1,0 +1,39 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "cockroachdb"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id    String @id @default(uuid())
+  email String @unique
+  name  String
+  password String
+  role Role @default(USER)
+
+  data Data[] @relation("createdBy")
+  updatingData Data[] @relation("updatedBy")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+model Data {
+  id     String @id @default(uuid())
+  data    String
+  userId String
+  adminId String?
+
+  createdBy User @relation("createdBy", fields: [userId], references: [id])
+  updatedBy User? @relation("updatedBy", fields: [adminId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
