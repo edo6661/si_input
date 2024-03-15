@@ -14,6 +14,20 @@ export const ourFileRouter = {
 
       return { userId: user.id };
     })
+
+    .onUploadComplete(async ({ metadata, file }) => {
+      return { uploadedBy: metadata.userId };
+    }),
+  documentUploader: f({
+    pdf: {},
+  })
+    .middleware(async ({ req }) => {
+      const user = await auth(req);
+
+      if (!user) throw new UploadThingError("Unauthorized");
+
+      return { userId: user.id };
+    })
     .onUploadComplete(async ({ metadata, file }) => {
       return { uploadedBy: metadata.userId };
     }),
