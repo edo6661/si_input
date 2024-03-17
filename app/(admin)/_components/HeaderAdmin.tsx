@@ -1,6 +1,7 @@
 import AdminLinks from "@/components/AdminLinks";
 import UserLinks from "@/components/UserLinks";
 import ClerkButtonUser from "@/components/user/ClerkButtonUser";
+import { fredoka } from "@/utils/fonts";
 import { SignedOut } from "@clerk/nextjs";
 import Link from "next/link";
 import React from "react";
@@ -10,17 +11,19 @@ interface HeaderAdminProps {
 const HeaderAdmin = ({ role }: HeaderAdminProps) => {
   return (
     <>
-      <div className="container">
-        <SignedOut>
-          <Link href="/sign-in">Login</Link>
-        </SignedOut>
-        {role === "ADMIN" ? (
-          <AdminLinks />
-        ) : role === "USER" ? (
-          <UserLinks />
-        ) : null}
-        <ClerkButtonUser />
-      </div>
+      <header className={fredoka.className}>
+        <nav className="container">
+          <SignedOut>
+            <Link href="/sign-in">Login</Link>
+          </SignedOut>
+          {role === "ADMIN" ? (
+            <AdminLinks />
+          ) : role === "USER" ? (
+            <UserLinks />
+          ) : null}
+          <ClerkButtonUser />
+        </nav>
+      </header>
     </>
   );
 };

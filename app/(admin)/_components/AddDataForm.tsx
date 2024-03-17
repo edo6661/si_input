@@ -46,7 +46,7 @@ export default function AddDataForm({
         .then(() => {
           console.log("success");
           toast.success("Data added successfully");
-          router.push("/admin/data");
+          router.push("/data");
         })
         .catch((err) => {
           console.error(err);

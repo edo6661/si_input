@@ -6,7 +6,7 @@ const ClerkButtonUser = () => {
   const isClient = useIsClient();
   return isClient ? (
     <SignedIn>
-      <UserButton />
+      <UserButton afterSignOutUrl="/" />
     </SignedIn>
   ) : null;
 };

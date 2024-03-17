@@ -1,10 +1,13 @@
+import { Button } from "@/components/ui/button";
+import UserHero from "@/components/user/UserHero";
 import React from "react";
 
 const UserPage = () => {
   return (
-    <div className="container">
-      <h1>Ini halaman user</h1>
-    </div>
+    <>
+      <UserHero />
+      <p>test ngentot</p>
+    </>
   );
 };
 

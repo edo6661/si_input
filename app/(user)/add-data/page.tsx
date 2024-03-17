@@ -1,10 +1,8 @@
-import React from "react";
-import AddDataForm from "../../_components/AddDataForm";
-import { currentUser } from "@clerk/nextjs";
 import { getCurrentUser } from "@/services/user";
 import { getAllCategory } from "@/services/category";
 import { getAllInstance } from "@/services/instance";
 import { getAllRelease } from "@/services/release";
+import AddDataForm from "@/app/(admin)/_components/AddDataForm";
 
 const AddDataPage = async () => {
   const user = await getCurrentUser();
@@ -13,12 +11,14 @@ const AddDataPage = async () => {
   const release = await getAllRelease();
 
   return (
-    <AddDataForm
-      userId={user?.id!}
-      categories={categories!}
-      instances={instances!}
-      release={release!}
-    />
+    <div className="p-avoid-nav">
+      <AddDataForm
+        userId={user?.id!}
+        categories={categories!}
+        instances={instances!}
+        release={release!}
+      />
+    </div>
   );
 };
 
