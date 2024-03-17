@@ -27,13 +27,53 @@ enum Role {
 
 model Data {
   id     String @id @default(uuid())
+  nama    String 
   data    String
+  
   userId String
   adminId String?
+  categoryId String
+  instanceId String
+  releaseId String
 
-  createdBy User @relation("createdBy", fields: [userId], references: [id])
+  category Category @relation(fields: [categoryId], references: [id])
+  instance Instance @relation(fields: [instanceId], references: [id])
+  release Release @relation(fields: [releaseId], references: [id])
+
   updatedBy User? @relation("updatedBy", fields: [adminId], references: [id])
+  createdBy User @relation("createdBy", fields: [userId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Category {
+  id    String @id @default(uuid())
+  nama  String 
+  data  Data[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
+
+model Instance {
+  id    String @id @default(uuid())
+  nama  String
+
+  data Data[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Release {
+  id    String @id @default(uuid())
+  nama  String
+  data  Data[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+
+
+
+

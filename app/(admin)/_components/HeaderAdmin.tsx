@@ -1,13 +1,13 @@
+import AdminLinks from "@/components/AdminLinks";
+import UserLinks from "@/components/UserLinks";
+import ClerkButtonUser from "@/components/user/ClerkButtonUser";
 import { SignedOut } from "@clerk/nextjs";
 import Link from "next/link";
 import React from "react";
-import ClerkButtonUser from "./ClerkButtonUser";
-import AdminLinks from "../AdminLinks";
-import UserLinks from "../UserLinks";
-interface HeaderUserProps {
+interface HeaderAdminProps {
   role: string;
 }
-const HeaderUser = ({ role }: HeaderUserProps) => {
+const HeaderAdmin = ({ role }: HeaderAdminProps) => {
   return (
     <>
       <div className="container">
@@ -25,4 +25,4 @@ const HeaderUser = ({ role }: HeaderUserProps) => {
   );
 };
 
-export default HeaderUser;
+export default HeaderAdmin;

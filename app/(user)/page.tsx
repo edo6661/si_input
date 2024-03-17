@@ -1,7 +1,11 @@
 import React from "react";
 
 const UserPage = () => {
-  return <div>UserPage</div>;
+  return (
+    <div className="container">
+      <h1>Ini halaman user</h1>
+    </div>
+  );
 };
 
 export default UserPage;
