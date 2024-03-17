@@ -7,7 +7,9 @@ const AdminDataPage = async () => {
   return (
     <div>
       AdminDataPage
-      <div>{JSON.stringify(allData)}</div>
+      {allData?.map((data) => (
+        <p key={data.data}>{data.data}</p>
+      ))}
     </div>
   );
 };

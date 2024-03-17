@@ -18,8 +18,10 @@ import { useTransition } from "react";
 import { dataSchema } from "@/lib/zod/data";
 import { createData } from "@/actions/data";
 import ImageUpload from "@/components/lib/ImageUploader";
+import { useRouter } from "next/navigation";
 
 export default function AddDataPage() {
+  const router = useRouter();
   const [isPending, startTransition] = useTransition();
 
   const form = useForm<z.infer<typeof dataSchema>>({
@@ -36,6 +38,7 @@ export default function AddDataPage() {
       createData(values)
         .then(() => {
           console.log("success");
+          router.push("/admin/data");
         })
         .catch((err) => {
           console.error(err);
@@ -47,7 +50,7 @@ export default function AddDataPage() {
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
         <div className="max-w-[200px]">
-          <ImageUpload setImageUrl={setValue} />
+          <ImageUpload setData={setValue} />
         </div>
         <Button type="submit" disabled={isPending}>
           Submit
