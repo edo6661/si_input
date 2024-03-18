@@ -1,3 +1,4 @@
+import CustomBreadCrumb from "@/components/CustomBreadCrumb";
 import Datas from "@/components/Datas";
 import ReusableDataTable from "@/components/ReusableDataTable";
 import ReusableTable from "@/components/ReusableTable";
@@ -9,9 +10,10 @@ import React from "react";
 
 const UserDataPage = async () => {
   const user = await getCurrentUser();
+  const data = await getAllDataByUserId(user?.id!);
   return (
     <section className="p-avoid-aside flex flex-col gap-2">
-      <ReusableTable id={user?.id!} />
+      <ReusableTable allData={data!} />
     </section>
   );
 };

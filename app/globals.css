@@ -86,6 +86,9 @@
   p {
     @apply text-balance;
   }
+  main {
+    @apply min-h-screen;
+  }
 }
 
 @layer utilities {
@@ -111,6 +114,7 @@
     @apply pl-52;
   }
 }
+
 /* ! reset */
 @layer utilities {
   .lg-leading {

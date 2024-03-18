@@ -14,6 +14,7 @@ const UserLayout = async ({ children }: ChildrenType) => {
   return (
     <>
       <HeaderUser role={currentUser?.role!} />
+
       <main className={cn("  ", poppins.className)}>{children}</main>
     </>
   );

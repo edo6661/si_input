@@ -15,7 +15,7 @@ const Datas = ({
     <div key={id} className="grid grid-cols-3">
       <div className="fl-ic">
         <p>Instance:</p>
-        <Link href={`/data/${encodeURI(instance.nama)}`}>{instance.nama}</Link>
+        <Link href={`/data/${id}`}>{instance.nama}</Link>
       </div>
 
       <div className="fl-ic">

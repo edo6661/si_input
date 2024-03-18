@@ -3,14 +3,26 @@ import { usePathname } from "next/navigation";
 import { Button } from "../ui/button";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import { CustomHoverCard } from "../HoverCard";
 
 const UserHeaderData = () => {
   const pathname = usePathname();
-  const activeData = pathname === "/data";
-  const activeAddData = pathname === "/add-data";
+
+  const data = [
+    {
+      href: "/data",
+      label: "Data",
+    },
+    {
+      href: "/add-data",
+      label: "Add Data",
+    },
+  ];
+
   return (
     <>
-      <Button
+      <CustomHoverCard data={data} title="Data" />
+      {/* <Button
         asChild
         variant="link"
         className={cn("", {
@@ -27,7 +39,7 @@ const UserHeaderData = () => {
         })}
       >
         <Link href="/add-data">Add Data</Link>
-      </Button>
+      </Button> */}
     </>
   );
 };

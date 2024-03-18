@@ -11,8 +11,9 @@ import { Heading } from "../ui/heading";
 import { Button } from "../ui/button";
 import UserLinksHeader from "./UserLinksHeader";
 import UserHeaderData from "./UserHeaderData";
+import { Role } from "@prisma/client";
 interface HeaderUserProps {
-  role: string;
+  role: Role;
 }
 const HeaderUser = ({ role }: HeaderUserProps) => {
   return (
@@ -44,7 +45,8 @@ const HeaderUser = ({ role }: HeaderUserProps) => {
                 <Link href="/sign-in">Sign in</Link>
               </Button>
             </SignedOut>
-            <UserHeaderData />
+            {role === "USER" && <UserHeaderData />}
+            {role === "ADMIN" && <AdminLinks />}
             <ClerkButtonUser />
           </div>
         </nav>

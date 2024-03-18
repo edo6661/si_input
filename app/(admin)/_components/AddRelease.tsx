@@ -46,7 +46,10 @@ export default function AddReleaseForm() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className="space-y-8 p-avoid-nav"
+      >
         <FormInput
           label="Nama"
           name="nama"

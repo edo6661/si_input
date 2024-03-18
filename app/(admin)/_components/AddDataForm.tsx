@@ -58,7 +58,7 @@ export default function AddDataForm({
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="space-y-12 container"
+        className="space-y-12 container p-avoid-nav"
       >
         <FormInput
           label="Nama"

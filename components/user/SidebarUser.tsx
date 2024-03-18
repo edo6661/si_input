@@ -3,6 +3,7 @@ import { Heading } from "../ui/heading";
 import VerticalSeparator from "../VerticalSeparator";
 import { getAllInstance } from "@/services/instance";
 import Link from "next/link";
+import Instances from "../Instances";
 
 const SidebarUser = async () => {
   const instances = await getAllInstance();
@@ -18,13 +19,7 @@ const SidebarUser = async () => {
         </div>
         <div className="px-4 flex flex-col gap-4">
           {instances?.map((instance) => (
-            <Link
-              href={`/data/${encodeURI(instance.nama)}`}
-              key={instance.id}
-              className="link-hover font-medium truncate"
-            >
-              {instance.nama}
-            </Link>
+            <Instances {...instance} key={instance.id} />
           ))}
         </div>
       </aside>

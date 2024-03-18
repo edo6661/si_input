@@ -10,19 +10,32 @@ import {
 } from "@/components/ui/table";
 import ReusableDataTable from "./ReusableDataTable";
 import { getAllDataByUserId } from "@/services/data";
+import { cn } from "@/lib/utils";
+import { DatasProps } from "@/types";
 
-export default async function ReusableTable({ id }: { id: string }) {
-  const allData = await getAllDataByUserId(id);
+interface ReusableTableProps {
+  allData: DatasProps[];
+}
 
+export default async function ReusableTable({ allData }: ReusableTableProps) {
+  const rows = ["Instance", "Category", "Data", "Release", "Created At"];
   return (
     <Table>
       <TableCaption>A list of your recent Data.</TableCaption>
       <TableHeader>
         <TableRow>
-          <TableHead>Instance</TableHead>
-          <TableHead>Category</TableHead>
-          <TableHead>Data</TableHead>
-          <TableHead className="text-right">Created At</TableHead>
+          {rows.map((row, i) => {
+            return (
+              <TableHead
+                key={i}
+                className={cn("", {
+                  "text-right": i === rows.length - 1,
+                })}
+              >
+                {row}
+              </TableHead>
+            );
+          })}
         </TableRow>
       </TableHeader>
       <TableBody>
