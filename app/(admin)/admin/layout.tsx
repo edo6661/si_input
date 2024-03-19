@@ -7,6 +7,7 @@ import { getAllCategory } from "@/services/category";
 import { getAllInstance } from "@/services/instance";
 import { poppins } from "@/utils/fonts";
 import { notFound } from "next/navigation";
+import { cn } from "@/lib/utils";
 
 const AdminLayout = async ({ children }: ChildrenType) => {
   const currentUser = await getCurrentUser();
@@ -19,7 +20,7 @@ const AdminLayout = async ({ children }: ChildrenType) => {
     <>
       <HeaderUser role={currentUser?.role!} />
 
-      <main className={poppins.className}>{children}</main>
+      <main className={cn(" container", poppins.className)}>{children}</main>
     </>
   );
 };

@@ -36,7 +36,7 @@ export default function AddInstanceForm() {
         .then(() => {
           console.log("success");
           toast.success("Instance added successfully");
-          router.push("/admin/data");
+          router.push("/admin/instances");
         })
         .catch((err) => {
           console.error(err);

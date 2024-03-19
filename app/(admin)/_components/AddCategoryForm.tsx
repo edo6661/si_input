@@ -34,7 +34,7 @@ export default function AddCategoryForm() {
         .then(() => {
           console.log("success");
           toast.success("Category added successfully");
-          router.push("/admin/data");
+          router.push("/admin/category");
         })
         .catch((err) => {
           console.error(err);
@@ -44,7 +44,7 @@ export default function AddCategoryForm() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="p-avoid-nav">
         <FormInput
           label="Nama"
           name="nama"

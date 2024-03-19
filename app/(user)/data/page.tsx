@@ -10,6 +10,7 @@ import { notFound } from "next/navigation";
 import React from "react";
 
 const UserDataPage = async () => {
+  const user = await getCurrentUser();
   const data = await getAllDataByUserId(user?.id!);
 
   return (

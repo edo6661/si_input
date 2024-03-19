@@ -6,7 +6,6 @@ const UserPage = () => {
   return (
     <>
       <UserHero />
-      <p>test ngentot</p>
     </>
   );
 };

@@ -14,7 +14,7 @@ const SidebarUser = async ({ title }: SidebarUserProps) => {
   const instances = await getAllInstance();
 
   return (
-    <div className="p-avoid-nav  ">
+    <div className="p-20">
       <aside className="fixed left-0 bg-second min-h-screen w-48">
         <div className="py-4 space-y-4">
           <DynamicSidebarTitle title={title} />

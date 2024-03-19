@@ -36,7 +36,7 @@ export default function AddReleaseForm() {
         .then(() => {
           console.log("success");
           toast.success("Release added successfully");
-          router.push("/admin/data");
+          router.push("/admin/release");
         })
         .catch((err) => {
           console.error(err);

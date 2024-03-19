@@ -13,9 +13,9 @@ import { cn } from "@/lib/utils";
 import { DatasProps } from "@/types";
 import Link from "next/link";
 import AdminHead from "./AdminHead";
-import { Heading } from "lucide-react";
 import { Category, Instance } from "@prisma/client";
 import ReusableAdminDataTable from "./ReuseableDataTable";
+import { Heading } from "@/components/ui/heading";
 
 interface ReusableTableProps {
   allData: Instance[];

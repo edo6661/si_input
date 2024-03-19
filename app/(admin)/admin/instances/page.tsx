@@ -7,13 +7,14 @@ import { getAllInstance } from "@/services/instance";
 import { deleteInstanceWithId } from "@/actions/instance";
 
 const InstancesPage = async () => {
-  const allCategory = await getAllInstance();
+  const allInstance = await getAllInstance();
+
   return (
     <section className="p-avoid-nav">
       <Heading>InstancesPage</Heading>
       <ReusableAdminTable
         actions={deleteInstanceWithId}
-        allData={allCategory!}
+        allData={allInstance!}
       />
     </section>
   );

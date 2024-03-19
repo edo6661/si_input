@@ -1,3 +1,4 @@
+import Footer from "@/components/Footer";
 import HeaderUser from "@/components/user/HeaderUser";
 import { cn } from "@/lib/utils";
 import { getAllCategory } from "@/services/category";
