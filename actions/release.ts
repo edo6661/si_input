@@ -18,3 +18,17 @@ export const createRelease = async (data: z.infer<typeof releaseSchema>) => {
     console.error(err);
   }
 };
+
+export const deleteReleaseWithId = async (id: string) => {
+  try {
+    await db.release.delete({
+      where: {
+        id,
+      },
+    });
+    revalidatePath("/admin/data");
+    revalidatePath("/admin/release");
+  } catch (err) {
+    console.error(err);
+  }
+};

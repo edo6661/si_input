@@ -10,9 +10,12 @@ const Instances = ({ nama, id }: Instance) => {
 
   const activeLink = pathname.includes(id);
 
+  const adminPath = pathname.includes("admin");
+  const basePath = adminPath ? `/admin/data/` : `/data/`;
+
   return (
     <Link
-      href={`/data/${id}`}
+      href={`${basePath}${id}`}
       key={id}
       className={cn("link-hover font-medium truncate", {
         "active-link": activeLink,

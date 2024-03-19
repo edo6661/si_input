@@ -16,6 +16,8 @@ import { dataDefaultValues } from "@/constants/data";
 import { Category, Instance, Release } from "@prisma/client";
 import FormInput from "@/components/FormInput";
 import FormSelect from "@/components/FormSelect";
+import { Heading, X } from "lucide-react";
+import Link from "next/link";
 interface AddDataFormProps {
   userId: string;
   instances: Instance[];
@@ -38,7 +40,7 @@ export default function AddDataForm({
       ...dataDefaultValues,
     },
   });
-  const { setValue } = form;
+  const { setValue, watch } = form;
 
   function onSubmit(values: z.infer<typeof dataSchema>) {
     startTransition(() => {
@@ -53,6 +55,8 @@ export default function AddDataForm({
         });
     });
   }
+
+  const data = watch("data");
 
   return (
     <Form {...form}>
@@ -87,8 +91,27 @@ export default function AddDataForm({
             data={release}
           />
         </div>
-        <div className="max-w-[200px]">
-          <ImageUpload setData={setValue} />
+        <div>
+          {data ? (
+            <>
+              <div className="space-x-4">
+                <a href={data} target="_blank" className="link-hover">
+                  {data}
+                </a>
+                <Button
+                  variant="destructive"
+                  size="icon"
+                  className=" h-8 w-8 px-0 py-0"
+                  onClick={() => setValue("data", "")}
+                  disabled={isPending}
+                >
+                  <X size="18" />
+                </Button>
+              </div>
+            </>
+          ) : (
+            <ImageUpload setData={setValue} />
+          )}
         </div>
         <Button type="submit" disabled={isPending}>
           Submit

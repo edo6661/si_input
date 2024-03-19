@@ -108,7 +108,7 @@
     @apply text-pink-500/75 blur-[0.5px] base-transition;
   }
   .p-avoid-nav {
-    @apply pt-20 pb-4;
+    @apply pt-[5.5rem] pb-4;
   }
   .p-avoid-aside {
     @apply pl-52;

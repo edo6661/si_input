@@ -19,7 +19,9 @@ export const ourFileRouter = {
       return { uploadedBy: metadata.userId };
     }),
   documentUploader: f({
-    pdf: {},
+    "application/pdf": {},
+    "application/vnd.openxmlformats-officedocument.wordprocessingml.document":
+      {},
   })
     .middleware(async ({ req }) => {
       const user = await auth(req);

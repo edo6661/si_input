@@ -18,6 +18,7 @@ const AdminLayout = async ({ children }: ChildrenType) => {
   return (
     <>
       <HeaderUser role={currentUser?.role!} />
+
       <main className={poppins.className}>{children}</main>
     </>
   );

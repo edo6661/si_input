@@ -20,6 +20,18 @@ const AdminLinks = () => {
       href: "/admin/data",
       label: "Data",
     },
+    {
+      href: "/admin/instances",
+      label: "Instances",
+    },
+    {
+      href: "/admin/release",
+      label: "Release",
+    },
+    {
+      href: "/admin/category",
+      label: "Category",
+    },
   ];
   return (
     <>

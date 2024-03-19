@@ -19,3 +19,17 @@ export const createCategory = async (data: z.infer<typeof categorySchema>) => {
     console.error(err);
   }
 };
+
+export const deleteCategoryWithId = async (id: string) => {
+  try {
+    await db.category.delete({
+      where: {
+        id,
+      },
+    });
+    revalidatePath("/admin/data");
+    revalidatePath("/admin/category");
+  } catch (err) {
+    console.error(err);
+  }
+};

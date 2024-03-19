@@ -20,3 +20,17 @@ export const createInstance = async (data: z.infer<typeof instanceSchema>) => {
     console.error(err);
   }
 };
+
+export const deleteInstanceWithId = async (id: string) => {
+  try {
+    await db.instance.delete({
+      where: {
+        id,
+      },
+    });
+    revalidatePath("/admin/data");
+    revalidatePath("/admin/instances");
+  } catch (err) {
+    console.error(err);
+  }
+};

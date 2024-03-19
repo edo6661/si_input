@@ -8,19 +8,24 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import ReusableDataTable from "./ReusableDataTable";
 import { getAllDataByUserId } from "@/services/data";
 import { cn } from "@/lib/utils";
 import { DatasProps } from "@/types";
-import DynamicTableHead from "./DynamicTableHead";
-import { Heading } from "./ui/heading";
 import Link from "next/link";
+import AdminHead from "./AdminHead";
+import { Heading } from "lucide-react";
+import { Category, Instance } from "@prisma/client";
+import ReusableAdminDataTable from "./ReuseableDataTable";
 
 interface ReusableTableProps {
-  allData: DatasProps[];
+  allData: Instance[];
+  actions: (id: string) => Promise<void>;
 }
 
-export default async function ReusableTable({ allData }: ReusableTableProps) {
+export default async function ReusableAdminTable({
+  allData,
+  actions,
+}: ReusableTableProps) {
   if (!allData.length)
     return <Heading className="text-center">Empty Data</Heading>;
 
@@ -29,12 +34,12 @@ export default async function ReusableTable({ allData }: ReusableTableProps) {
       <TableCaption>A list of your recent Data.</TableCaption>
       <TableHeader>
         <TableRow>
-          <DynamicTableHead />
+          <AdminHead />
         </TableRow>
       </TableHeader>
       <TableBody>
         {allData?.map((data) => (
-          <ReusableDataTable {...data} key={data.id} />
+          <ReusableAdminDataTable {...data} key={data.id} actions={actions} />
         ))}
       </TableBody>
     </Table>

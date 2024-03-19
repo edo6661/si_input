@@ -6,10 +6,11 @@ import { notFound } from "next/navigation";
 import React from "react";
 
 const LayoutData = async ({ children }: ChildrenType) => {
-  const title = "User";
+  const title = "Admin";
+
   const user = await getCurrentUser();
 
-  if (user?.role === "ADMIN") return notFound();
+  if (user?.role === "USER") return notFound();
   return (
     <>
       <div>

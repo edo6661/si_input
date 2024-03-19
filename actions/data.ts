@@ -19,3 +19,17 @@ export const createData = async (data: z.infer<typeof dataSchema>) => {
     console.error(err);
   }
 };
+export const deleteDataWithId = async (id: string) => {
+  try {
+    const deletedData = await db.data.delete({
+      where: {
+        id,
+      },
+    });
+    revalidatePath("/admin/data");
+    revalidatePath("/data");
+    return deletedData;
+  } catch (err) {
+    console.error(err);
+  }
+};

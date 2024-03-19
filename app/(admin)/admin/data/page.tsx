@@ -1,19 +1,14 @@
-import Datas from "@/components/Datas";
-import { getAllData } from "@/services/data";
-import React from "react";
+import ReusableTable from "@/components/ReusableTable";
+import { getAllData, getAllDataByUserId } from "@/services/data";
+import { getCurrentUser } from "@/services/user";
 
-const AdminDataPage = async () => {
-  const allData = await getAllData();
-
+const UserDataPage = async () => {
+  const data = await getAllData();
   return (
-    <div className="container">
-      <div className="space-y-8">
-        {allData?.map((data) => (
-          <Datas {...data} key={data.id} />
-        ))}
-      </div>
-    </div>
+    <section className="p-avoid-aside flex flex-col gap-2">
+      <ReusableTable allData={data!} />
+    </section>
   );
 };
 
-export default AdminDataPage;
+export default UserDataPage;
