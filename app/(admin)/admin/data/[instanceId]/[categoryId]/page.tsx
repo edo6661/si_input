@@ -2,6 +2,7 @@ import CustomBreadCrumb from "@/components/CustomBreadCrumb";
 import ReusableDataTable from "@/components/ReusableDataTable";
 import ReusableTable from "@/components/ReusableTable";
 import {
+  getAllDataByInstanceIdAndCategoryId,
   getAllDataByInstanceIdAndUserId,
   getAllDataByInstanceIdAndUserIdAndCategoryId,
 } from "@/services/data";
@@ -16,10 +17,8 @@ interface SpesificCategoryPageProps {
 }
 
 const SpesificCategoryPage = async ({ params }: SpesificCategoryPageProps) => {
-  const user = await getCurrentUser();
-  const data = await getAllDataByInstanceIdAndUserIdAndCategoryId(
+  const data = await getAllDataByInstanceIdAndCategoryId(
     params.instanceId,
-    user?.id!,
     params.categoryId
   );
 

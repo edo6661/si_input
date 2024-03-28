@@ -1,6 +1,6 @@
 import ReusableDataTable from "@/components/ReusableDataTable";
 import ReusableTable from "@/components/ReusableTable";
-import { getAllDataByInstanceIdAndUserIdAndCategoryIdAndReleaseId } from "@/services/data";
+import { getAllDataByInstanceIdAndCategoryIdAndReleaseId, getAllDataByInstanceIdAndUserIdAndCategoryIdAndReleaseId } from "@/services/data";
 import { getCurrentUser } from "@/services/user";
 import React from "react";
 
@@ -13,10 +13,8 @@ interface SpesificReleasePageProps {
 }
 
 const SpesificReleasePage = async ({ params }: SpesificReleasePageProps) => {
-  const user = await getCurrentUser();
-  const data = await getAllDataByInstanceIdAndUserIdAndCategoryIdAndReleaseId(
+  const data = await getAllDataByInstanceIdAndCategoryIdAndReleaseId(
     params.instanceId,
-    user?.id!,
     params.categoryId,
     params.releaseId
   );

@@ -1,6 +1,6 @@
 import ReusableDataTable from "@/components/ReusableDataTable";
 import ReusableTable from "@/components/ReusableTable";
-import { getAllDataByInstanceIdAndUserId } from "@/services/data";
+import { getAllDataByInstanceId, getAllDataByInstanceIdAndUserId } from "@/services/data";
 import { getCurrentUser } from "@/services/user";
 import React from "react";
 
@@ -11,11 +11,10 @@ interface InstancePageProps {
 }
 
 const InstancePage = async ({ params }: InstancePageProps) => {
-  const user = await getCurrentUser();
-  const data = await getAllDataByInstanceIdAndUserId(
+  const data = await getAllDataByInstanceId(
     params.instanceId,
-    user?.id!
   );
+
 
   return (
     <section className="p-avoid-aside">

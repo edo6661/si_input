@@ -12,10 +12,10 @@ const ImageLogo = () => {
 
   return (
     <div
-      className={`bg-white rounded-full p-2 hovered shadow-muted-foreground dark:shadow-white shadow-sm `}
+      className={`bg-white rounded-full p-4 pt-6 hovered shadow-muted-foreground dark:shadow-white shadow-sm `}
     >
       <Link href="/" className="outline-none">
-        <Image src="/logo.png" alt="logo" height={imgProp} width={imgProp} />
+        <Image src="/logo-kabupaten-tangerang.png" alt="logo" height={imgProp} width={imgProp} />
       </Link>
     </div>
   );

@@ -121,3 +121,15 @@
     @apply leading-[3.5rem] !important;
   }
 }
+
+/* ! WAPI YANG NULIS */
+/* TODO */
+/* ! PROFILE */
+@layer components {
+  .kontener {
+    max-width: 720px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+  }
+}
