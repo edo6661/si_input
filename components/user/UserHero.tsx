@@ -7,7 +7,7 @@ import VerticalSeparator from "../VerticalSeparator";
 const UserHero = () => {
   return (
     <section
-      className="p-avoid-nav pb-4 bg-cover bg-fixed min-h-[892px] relative  "
+      className="p-avoid-nav bg-cover bg-fixed min-h-[892px] relative  "
       style={{
         backgroundImage: "url('/hero.png')",
       }}

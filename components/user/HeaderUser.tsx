@@ -37,9 +37,10 @@ const HeaderUser = ({ role }: HeaderUserProps) => {
             </Heading>
           </Link>
           <div>
-            <UserLinksHeader />
           </div>
           <div className="fl-ic gap-4">
+          <UserLinksHeader />
+
             <SignedOut>
               <Button asChild variant="secondary">
                 <Link href="/sign-in">Sign in</Link>
