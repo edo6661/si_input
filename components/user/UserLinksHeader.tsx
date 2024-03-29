@@ -6,10 +6,10 @@ import React from "react";
 
 const UserLinksHeader = () => {
   const pathname = usePathname();
-  const linksHeader = ["Profile", "Program", "Visi-Misi"];
+  const linksHeader = ["Profile", "Visi-Misi"];
 
   return (
-    <ul className="fl-ic gap-4 font-medium">
+    <ul className="fl-ic gap-6 font-medium">
       {linksHeader.map((link) => (
         <li key={link}>
           <Link
