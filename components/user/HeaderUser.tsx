@@ -33,7 +33,7 @@ const HeaderUser = ({ role }: HeaderUserProps) => {
               height={48}
             />
             <Heading as="h3" size="md" className="font-semibold">
-              DPPP
+              DPPPA
             </Heading>
           </Link>
           <div>
