@@ -21,11 +21,12 @@ const Profile = () => {
               <br />
               <br />
               <Heading>Tujuan</Heading>
-              <ul className='leading-10'>
+              <ul className='leading-8'>
                 <li>Mempermudah pengumpulan dan analisis data terkait pemberdayaan perempuan dan perlindungan anak.</li>
                 <li>Meningkatkan efisiensi dalam proses pengolahan dan pelaporan data.</li>
                 <li>Memberikan informasi yang akurat dan tepat waktu kepada pihak internal DP3A.</li>
               </ul>
+              <br />
             </div>
         </article>
         </div>

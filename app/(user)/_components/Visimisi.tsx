@@ -2,11 +2,11 @@ import { Heading } from "@/components/ui/heading";
 import React from "react";
 
 const VisiMisi = () => {
-  return <section  id="visimisi">
+  return <section  id="visimisi" className='scroll-mt-32'>
     <article className="container-visi-misi container">
     <div>
       <Heading>VISI</Heading>
-      <ul>
+      <ul className='leading-8'>
         <li>Religius mengandung bahwa nilai-nilai agama   
       mendasari sikap dan perilaku dalam kehidupan 
       bermasyarakat, berbangsa dan bernegara sesuai 
@@ -32,7 +32,7 @@ const VisiMisi = () => {
     </div>
     <div>
       <Heading>MISI</Heading>
-      <ul>
+      <ul className="leading-8">
         <li>Meningkatkan penerapan nilai-nilai keagaman 
        dalam kehidupan bermasyarakat menuju  
        masyarakat yang religius.</li>

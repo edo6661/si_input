@@ -31,8 +31,7 @@ const UserHero = () => {
           <VerticalSeparator />
 
           <p className="font-medium text-2xl">
-            Mewujudkan Masyarakat Kabupaten Tangerang yang Religius, Cerdas,
-            Sehat dan Sejahtera
+            Sistem Informasi Pengumpulan Data Berbasis Web Pada Bidang Pemberdayaan Perempuan
           </p>
         </div>
       </div>
