@@ -25,7 +25,7 @@ export default async function ReusableTable({ allData }: ReusableTableProps) {
     return <Heading className="text-center">Empty Data</Heading>;
 
   return (
-    <Table>
+    <Table  >
       <TableCaption>A list of your recent Data.</TableCaption>
       <TableHeader>
         <TableRow>
