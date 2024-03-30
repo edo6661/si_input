@@ -38,7 +38,6 @@ const HeaderUser = ({ role }: HeaderUserProps) => {
               DPPPA
             </Heading>
           </Link>
-          <div></div>
           <div className="fl-ic gap-4">
             {pathname.length < 2 && <UserLinksHeader />}
             <SignedOut>

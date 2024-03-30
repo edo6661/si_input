@@ -10,6 +10,10 @@ const UserHeaderData = () => {
 
   const data = [
     {
+      href: "/profile",
+      label: "Profile",
+    },
+    {
       href: "/data",
       label: "Data",
     },

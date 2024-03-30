@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 
 import { Button } from "@/components/ui/button";
-import { Form } from "@/components/ui/form";
+import { Form, FormField, FormItem, FormMessage } from "@/components/ui/form";
 import { useTransition } from "react";
 import { dataSchema } from "@/lib/zod/data";
 import { createData } from "@/actions/data";
@@ -20,15 +20,15 @@ import { Heading, X } from "lucide-react";
 import Link from "next/link";
 interface AddDataFormProps {
   userId: string;
-  instances: Instance[];
   categories: Category[];
   release: Release[];
+  instanceId: string;
 }
 export default function AddDataForm({
   userId,
-  instances,
   categories,
   release,
+  instanceId,
 }: AddDataFormProps) {
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
@@ -37,6 +37,7 @@ export default function AddDataForm({
     resolver: zodResolver(dataSchema),
     defaultValues: {
       userId: userId,
+      instanceId: instanceId,
       ...dataDefaultValues,
     },
   });
@@ -72,12 +73,12 @@ export default function AddDataForm({
           description="Nama data"
         />
         <div className="flex items-center gap-4">
-          <FormSelect
+          {/* <FormSelect
             name="instanceId"
             placeholder="Pilih Instance"
             control={form.control}
             data={instances}
-          />
+          /> */}
           <FormSelect
             name="categoryId"
             placeholder="Pilih Category"
@@ -110,7 +111,18 @@ export default function AddDataForm({
               </div>
             </>
           ) : (
-            <ImageUpload setData={setValue} />
+            <>
+              <FormField
+                control={form.control}
+                name="data"
+                render={({ field }) => (
+                  <FormItem>
+                    <ImageUpload setData={setValue} />
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </>
           )}
         </div>
         <Button type="submit" disabled={isPending}>
