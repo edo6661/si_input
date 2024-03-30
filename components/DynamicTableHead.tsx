@@ -8,7 +8,7 @@ const DynamicTableHead = () => {
   const pathname = usePathname();
   const adminPath = pathname.includes("admin");
 
-  const rows = ["Instance", "Category", "Data", "Release"];
+  const rows = ["Instance", "Category", "Data", "Release", "Created At"];
   const adminRows = [...rows, "User", "Actions"];
 
   const dynamicRows = adminPath ? adminRows : rows;

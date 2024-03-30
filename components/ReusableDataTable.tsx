@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { Button } from "./ui/button";
 import { X } from "lucide-react";
 import AdminDataTable from "./admin/AdminDataTable";
+import { formatDate } from "@/utils/formatDate";
 
 const ReusableDataTable = ({
   instance,
@@ -15,6 +16,7 @@ const ReusableDataTable = ({
   release,
   nama,
   createdBy,
+  createdAt,
 }: DatasProps) => {
   const pathname = usePathname();
   const adminPath = pathname.includes("admin");
@@ -46,6 +48,9 @@ const ReusableDataTable = ({
         >
           {release.nama}
         </Link>
+      </TableCell>
+      <TableCell>
+        <span>{formatDate(createdAt)}</span>
       </TableCell>
       {adminPath && <AdminDataTable createdBy={createdBy} id={id} />}
     </TableRow>

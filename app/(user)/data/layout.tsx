@@ -8,14 +8,14 @@ import React from "react";
 const LayoutData = async ({ children }: ChildrenType) => {
   const title = "User";
   const user = await getCurrentUser();
-  const instances = await getAllInstance();
+  const instances = await getUserInstances();
 
   if (user?.role === "ADMIN") return notFound();
 
   return (
     <>
       <div>
-        <SidebarUser title={title} instances={instances!} />
+        <SidebarUser title={title} dataInstance={instances} />
         {children}
       </div>
     </>

@@ -1,6 +1,9 @@
 import ReusableDataTable from "@/components/ReusableDataTable";
 import ReusableTable from "@/components/ReusableTable";
-import { getAllDataByInstanceIdAndCategoryIdAndReleaseId, getAllDataByInstanceIdAndUserIdAndCategoryIdAndReleaseId } from "@/services/data";
+import {
+  getAllDataByInstanceIdAndCategoryIdAndReleaseId,
+  getAllDataByInstanceIdAndUserIdAndCategoryIdAndReleaseId,
+} from "@/services/data";
 import { getCurrentUser } from "@/services/user";
 import React from "react";
 

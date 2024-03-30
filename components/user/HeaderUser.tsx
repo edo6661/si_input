@@ -1,9 +1,9 @@
+"use client";
 import { SignedOut } from "@clerk/nextjs";
 import Link from "next/link";
 import React from "react";
 import ClerkButtonUser from "./ClerkButtonUser";
 import AdminLinks from "../AdminLinks";
-import UserLinks from "../UserLinks";
 import { fredoka } from "@/utils/fonts";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
@@ -12,10 +12,12 @@ import { Button } from "../ui/button";
 import UserLinksHeader from "./UserLinksHeader";
 import UserHeaderData from "./UserHeaderData";
 import { Role } from "@prisma/client";
+import { usePathname } from "next/navigation";
 interface HeaderUserProps {
   role: Role;
 }
 const HeaderUser = ({ role }: HeaderUserProps) => {
+  const pathname = usePathname();
   return (
     <>
       <header
@@ -38,7 +40,7 @@ const HeaderUser = ({ role }: HeaderUserProps) => {
           </Link>
           <div></div>
           <div className="fl-ic gap-4">
-            {!role && <UserLinksHeader />}
+            {pathname.length < 2 && <UserLinksHeader />}
             <SignedOut>
               <Button asChild variant="secondary">
                 <Link href="/sign-in">Sign in</Link>
