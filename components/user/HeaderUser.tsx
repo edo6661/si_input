@@ -36,11 +36,9 @@ const HeaderUser = ({ role }: HeaderUserProps) => {
               DPPPA
             </Heading>
           </Link>
-          <div>
-          </div>
+          <div></div>
           <div className="fl-ic gap-4">
-          <UserLinksHeader />
-
+            {!role && <UserLinksHeader />}
             <SignedOut>
               <Button asChild variant="secondary">
                 <Link href="/sign-in">Sign in</Link>

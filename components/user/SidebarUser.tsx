@@ -5,14 +5,15 @@ import { getAllInstance } from "@/services/instance";
 import Link from "next/link";
 import Instances from "../Instances";
 import DynamicSidebarTitle from "../DynamicSidebarTitle";
+import { Instance } from "@prisma/client";
+import { usePathname } from "next/navigation";
 
 interface SidebarUserProps {
   title: string;
+  instances: Instance[];
 }
 
-const SidebarUser = async ({ title }: SidebarUserProps) => {
-  const instances = await getAllInstance();
-
+const SidebarUser = ({ title, instances }: SidebarUserProps) => {
   return (
     <div className="p-20">
       <aside className="fixed left-0 bg-second min-h-screen w-48">

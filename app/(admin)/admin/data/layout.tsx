@@ -9,12 +9,13 @@ const LayoutData = async ({ children }: ChildrenType) => {
   const title = "Admin";
 
   const user = await getCurrentUser();
+  const instances = await getAllInstance();
 
   if (user?.role === "USER") return notFound();
   return (
     <>
       <div>
-        <SidebarUser title={title} />
+        <SidebarUser title={title} instances={instances!} />
         {children}
       </div>
     </>

@@ -7,7 +7,6 @@ import { getCurrentUser } from "@/services/user";
 
 const UserPage = async () => {
   const current = await getCurrentUser();
-  console.log(current);
 
   return (
     <>

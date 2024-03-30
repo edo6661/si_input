@@ -6,6 +6,8 @@ export const dataSchema = z.object({
   instanceId: z.string(),
   categoryId: z.string(),
   adminId: z.string().optional(),
-  nama: z.string(),
+  nama: z.string().min(2, {
+    message: "Nama harus lebih dari 2 karakter",
+  }),
   releaseId: z.string(),
 });
