@@ -8,7 +8,7 @@ const CategoryPage = async () => {
   const allCategory = await getAllCategory();
   return (
     <section className="p-avoid-nav">
-      <Heading>CategoryPage</Heading>
+      <Heading>Category</Heading>
       <ReusableAdminTable
         actions={deleteCategoryWithId}
         allData={allCategory!}

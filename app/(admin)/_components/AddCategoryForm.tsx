@@ -44,7 +44,7 @@ export default function AddCategoryForm() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="p-avoid-nav">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 p-avoid-nav max-w-xl mx-auto">
         <FormInput
           label="Nama"
           name="nama"

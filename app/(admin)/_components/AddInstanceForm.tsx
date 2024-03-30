@@ -48,7 +48,7 @@ export default function AddInstanceForm() {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="space-y-8 p-avoid-nav"
+        className="space-y-8 p-avoid-nav max-w-xl mx-auto"
       >
         <FormInput
           label="Nama"

@@ -13,6 +13,7 @@ const ReusableAdminDataTable = ({
   return (
     <TableRow key={id} className="text-center">
       <TableCell className="font-medium">{nama}</TableCell>
+
       <ActionTableAdmin actions={actions} id={id} />
     </TableRow>
   );

@@ -12,7 +12,7 @@ const ReleasePage = async () => {
   const allCategory = await getAllRelease();
   return (
     <section className="p-avoid-nav">
-      <Heading>ReleasePage</Heading>
+      <Heading>Releases</Heading>
       <ReusableAdminTable
         actions={deleteReleaseWithId}
         allData={allCategory!}

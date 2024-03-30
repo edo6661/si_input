@@ -5,6 +5,7 @@ import { deleteDataWithId } from "@/actions/data";
 import { toast } from "sonner";
 import { TableCell } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
+import AlertDialog from "@/components/AlertDialog";
 interface ActionTableAdminProps {
   id: string;
   actions: (id: string) => Promise<void>;
@@ -28,15 +29,13 @@ const ActionTableAdmin = ({ id, actions }: ActionTableAdminProps) => {
   return (
     <>
       <TableCell>
-        <Button
-          variant="destructive"
-          size="icon"
-          className="w-fit px-3"
-          onClick={handleDelete}
-          disabled={isPending}
-        >
-          <X size="18" />
-        </Button>
+        <AlertDialog
+          action={handleDelete}
+          isPending={isPending}
+          trigger={
+            isPending ? "Deleting..." : "Delete"
+          }
+        />
       </TableCell>
     </>
   );

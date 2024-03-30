@@ -11,7 +11,7 @@ const InstancesPage = async () => {
 
   return (
     <section className="p-avoid-nav">
-      <Heading>InstancesPage</Heading>
+      <Heading>Instances</Heading>
       <ReusableAdminTable
         actions={deleteInstanceWithId}
         allData={allInstance!}

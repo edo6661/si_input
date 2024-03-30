@@ -5,6 +5,7 @@ import { User } from "@prisma/client";
 import { X } from "lucide-react";
 import { deleteDataWithId } from "@/actions/data";
 import { toast } from "sonner";
+import AlertDialog from "../AlertDialog";
 interface AdminDataTableProps {
   createdBy: User;
   id: string;
@@ -29,15 +30,21 @@ const AdminDataTable = ({ createdBy, id }: AdminDataTableProps) => {
     <>
       <TableCell>{createdBy?.username}</TableCell>
       <TableCell>
-        <Button
+        {/* <Button
           variant="destructive"
           size="icon"
-          className="w-fit px-3"
           onClick={handleDelete}
           disabled={isPending}
         >
           <X size="18" />
-        </Button>
+        </Button> */}
+        <AlertDialog
+          action={handleDelete}
+          isPending={isPending}
+          trigger={
+            isPending ? "Deleting..." : "Delete"
+          }
+        />
       </TableCell>
     </>
   );

@@ -63,7 +63,7 @@ export default function AddDataForm({
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="space-y-12 container p-avoid-nav"
+        className="space-y-8 p-avoid-nav max-w-2xl mx-auto"
       >
         <FormInput
           label="Nama"
@@ -72,7 +72,7 @@ export default function AddDataForm({
           control={form.control}
           description="Nama data"
         />
-        <div className="flex items-center gap-4">
+        <div className="flex items-center justify-between ">
           {/* <FormSelect
             name="instanceId"
             placeholder="Pilih Instance"

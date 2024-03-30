@@ -10,7 +10,6 @@ export const Logo = () => {
         <h1 className="title">
           DPPPA <span className="text-muted-foreground">&#8506;</span>
         </h1>
-        <p className="muted-text">Shoppy!</p>
       </div>
     </div>
   );
