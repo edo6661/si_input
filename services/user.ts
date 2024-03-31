@@ -32,3 +32,15 @@ export const getUserInstanceId = async () => {
     console.error(err);
   }
 };
+
+export const getAllUsers = async () => {
+  try {
+    return await db.user.findMany({
+      include: {
+        instance: true,
+      },
+    });
+  } catch (err) {
+    console.error(err);
+  }
+};

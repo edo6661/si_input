@@ -23,3 +23,14 @@ export const getUserInstances = async () => {
     console.error(err);
   }
 };
+export const getAllInstanceWithoutUser = async () => {
+  try {
+    return db.instance.findMany({
+      where: {
+        user: null,
+      },
+    });
+  } catch (err) {
+    console.error(err);
+  }
+};

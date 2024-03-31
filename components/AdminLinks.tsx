@@ -32,6 +32,10 @@ const AdminLinks = () => {
       href: "/admin/category",
       label: "Category",
     },
+    {
+      href: "/admin/users",
+      label: "Users",
+    },
   ];
   return (
     <>

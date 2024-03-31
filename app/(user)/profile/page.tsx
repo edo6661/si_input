@@ -1,7 +1,7 @@
 import FormSelect from "@/components/FormSelect";
 import { Heading } from "@/components/ui/heading";
 import { Input } from "@/components/ui/input";
-import { getAllInstance } from "@/services/instance";
+import { getAllInstance, getAllInstanceWithoutUser } from "@/services/instance";
 import { getCurrentUser, getUserInstanceId } from "@/services/user";
 import Image from "next/image";
 import React from "react";
@@ -10,7 +10,8 @@ import { notFound } from "next/navigation";
 
 const ProfilePage = async () => {
   const current = await getUserInstanceId();
-  const instances = await getAllInstance();
+  const instancesWithoutUser = await getAllInstanceWithoutUser()
+
 
   if (current?.role === "ADMIN") return notFound();
 
@@ -26,11 +27,11 @@ const ProfilePage = async () => {
           className="rounded-full"
         />
         <Heading size="sm">{current?.username}</Heading>
-        {current?.instanceId ? (
+        {instancesWithoutUser && instancesWithoutUser?.length > 0 ? current?.instanceId ? (
           <Heading size="sm">{current?.instance?.nama}</Heading>
         ) : (
-          <FormProfile instances={instances!} />
-        )}
+          <FormProfile instances={instancesWithoutUser!} />
+        ) : <Heading>No Free Instance, Tell Admin To Add New Instance</Heading>}
       </div>
     </section>
   );
