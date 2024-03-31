@@ -26,8 +26,6 @@ const ProfilePage = async () => {
           className="rounded-full"
         />
         <Heading size="sm">{current?.username}</Heading>
-        // TODO
-        // @ts-ignore
         {current?.instanceId ? (
           <Heading size="sm">{current?.instance?.nama}</Heading>
         ) : (
