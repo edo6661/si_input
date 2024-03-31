@@ -10,15 +10,16 @@ import {
 } from "@/components/ui/table";
 import { getAllDataByUserId } from "@/services/data";
 import { cn } from "@/lib/utils";
-import { DatasProps } from "@/types";
+import { DatasProps, InstanceData } from "@/types";
 import Link from "next/link";
 import AdminHead from "./AdminHead";
-import { Category, Instance } from "@prisma/client";
+import { Category, Data, Instance } from "@prisma/client";
 import ReusableAdminDataTable from "./ReuseableDataTable";
 import { Heading } from "@/components/ui/heading";
 
+
 interface ReusableTableProps {
-  allData: Instance[];
+  allData: any[]
   actions: (id: string) => Promise<void>;
 }
 
@@ -28,6 +29,7 @@ export default async function ReusableAdminTable({
 }: ReusableTableProps) {
   if (!allData.length)
     return <Heading className="text-center">Empty Data</Heading>;
+
 
   return (
     <Table>

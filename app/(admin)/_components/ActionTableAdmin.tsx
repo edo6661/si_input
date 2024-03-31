@@ -1,5 +1,5 @@
 import React, { useTransition } from "react";
-import { User } from "@prisma/client";
+import { Data, User } from "@prisma/client";
 import { X } from "lucide-react";
 import { deleteDataWithId } from "@/actions/data";
 import { toast } from "sonner";
@@ -9,14 +9,18 @@ import AlertDialog from "@/components/AlertDialog";
 interface ActionTableAdminProps {
   id: string;
   actions: (id: string) => Promise<void>;
+  data: Data[]
 }
 
-const ActionTableAdmin = ({ id, actions }: ActionTableAdminProps) => {
+const ActionTableAdmin = ({ id, actions, data }: ActionTableAdminProps) => {
   const [isPending, startTransition] = useTransition();
   const handleDelete = async () => {
     startTransition(() => {
       actions(id)
         .then(() => {
+          if (data.length > 0) {
+            return toast.error(`Data cannot be deleted because it has a relationship with another data`);
+          }
           toast.success(`Data  has been deleted`);
         })
         .catch((err) => {

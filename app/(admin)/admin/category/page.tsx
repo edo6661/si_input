@@ -6,6 +6,7 @@ import { deleteCategoryWithId } from "@/actions/category";
 
 const CategoryPage = async () => {
   const allCategory = await getAllCategory();
+  console.log(allCategory)
   return (
     <section className="p-avoid-nav">
       <Heading>Category</Heading>

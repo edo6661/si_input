@@ -3,7 +3,11 @@ import { getCurrentUser } from "./user";
 
 export const getAllInstance = async () => {
   try {
-    return db.instance.findMany();
+    return db.instance.findMany({
+      include: {
+        data: true,
+      },
+    });
   } catch (err) {
     console.error(err);
   }

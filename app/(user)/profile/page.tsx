@@ -18,7 +18,7 @@ const ProfilePage = async () => {
   return (
     <section className="p-avoid-nav container">
       <Heading>Profile</Heading>
-      <div className="max-w-xl mx-auto flex flex-col items-center justify-center gap-4">
+      <div className="max-w-2xl mx-auto flex flex-col items-center justify-center gap-4">
         <Image
           src={current?.profilePhoto!}
           alt="avatar"
@@ -31,7 +31,7 @@ const ProfilePage = async () => {
           <Heading size="sm">{current?.instance?.nama}</Heading>
         ) : (
           <FormProfile instances={instancesWithoutUser!} />
-        ) : <Heading>No Free Instance, Tell Admin To Add New Instance</Heading>}
+        ) : <Heading className="text-center">No Free Instance, Contact Admin To Add New Instance</Heading>}
       </div>
     </section>
   );

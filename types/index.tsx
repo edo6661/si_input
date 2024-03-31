@@ -10,3 +10,4 @@ export interface DatasProps extends Data {
   instance: Instance;
   release: Release;
 }
+export type InstanceData = Instance & { data: Data[] };

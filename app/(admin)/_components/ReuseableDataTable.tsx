@@ -2,19 +2,23 @@
 import { TableCell, TableRow } from "@/components/ui/table";
 import { Instance } from "@prisma/client";
 import ActionTableAdmin from "./ActionTableAdmin";
-interface ReusableAdminDataTableProps extends Instance {
+import { InstanceData } from "@/types";
+interface ReusableAdminDataTableProps extends InstanceData {
   actions: (id: string) => Promise<void>;
 }
 const ReusableAdminDataTable = ({
   nama,
   id,
   actions,
+  data
 }: ReusableAdminDataTableProps) => {
+
+
   return (
     <TableRow key={id} className="text-center">
       <TableCell className="font-medium">{nama}</TableCell>
 
-      <ActionTableAdmin actions={actions} id={id} />
+      <ActionTableAdmin actions={actions} id={id} data={data} />
     </TableRow>
   );
 };

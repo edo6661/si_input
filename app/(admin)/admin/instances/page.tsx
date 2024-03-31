@@ -9,6 +9,7 @@ import { deleteInstanceWithId } from "@/actions/instance";
 const InstancesPage = async () => {
   const allInstance = await getAllInstance();
 
+
   return (
     <section className="p-avoid-nav">
       <Heading>Instances</Heading>
