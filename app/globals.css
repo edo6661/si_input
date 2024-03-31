@@ -140,7 +140,7 @@
   }
   .container .h1{
     font-size: 2rem;
-    font-weight: 900;
+    font-weight: 800;
   }
   .container-profile li {
     list-style: circle;
@@ -166,9 +166,13 @@
   }
   /* VISIMISI */
   .container-visi-misi .h2{
-    font-size: 2rem;
+    font-size: 1.2rem;
     font-weight: 800;
     text-decoration:2px underline;
+  }
+  .container .style-visimisi{
+    font-size: 2rem;
+    font-weight: 800;
   }
   .container-visi-misi {
     @apply container grid grid-cols-2 gap-6;
