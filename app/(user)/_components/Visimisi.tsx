@@ -5,7 +5,7 @@ const VisiMisi = () => {
   return <section id="visimisi" >
     <article className="container-visi-misi container">
       <div>
-        <Heading>VISI</Heading>
+        <Heading className="h2">VISI</Heading>
         <ul className='leading-8'>
           <li>Religius mengandung bahwa nilai-nilai agama
             mendasari sikap dan perilaku dalam kehidupan
@@ -31,7 +31,7 @@ const VisiMisi = () => {
         </ul>
       </div>
       <div>
-        <Heading>MISI</Heading>
+        <Heading className="h2">MISI</Heading>
         <ul className="leading-8">
           <li>Meningkatkan penerapan nilai-nilai keagaman
             dalam kehidupan bermasyarakat menuju

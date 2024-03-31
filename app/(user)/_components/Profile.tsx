@@ -7,20 +7,23 @@ const Profile = () => {
     <section id='profile' className='  scroll-mt-32 '>
       <div className="container">
         <div className="fl-ic justify-center pb-10">
-          <Heading >PROFILE</Heading>
+          <Heading className='h1' >PROFILE</Heading>
 
         </div>
         <article className="container-profile">
           <div>
-            <Heading>Struktur Organisasi</Heading>
-            {/* <img src="#" alt="#" /> */}
+            <Heading className='h2'>Struktur Organisasi</Heading>
+            <div className="struktur-organisasi">
+            <img src="WAFY.jpg" alt="#" />
+            </div>
+            
           </div>
           <div>
-            <Heading>Latar Belakang</Heading>
+            <Heading className='h2'>Latar Belakang</Heading>
             <p className='leading-8'>Dinas Pemberdayaan Perempuan dan Perlindungan Anak (DP3A) membutuhkan sistem pengumpulan data yang efisien, terstruktur, dan terintegrasi untuk memonitor dan mengukur kinerja dalam pelaksanaan tugas dan tanggung jawabnya. Web pengumpulan data ini dirancang khusus untuk keperluan internal DP3A, tanpa menggunakan dashboard publik.</p>
             <br />
             <br />
-            <Heading>Tujuan</Heading>
+            <Heading className='h2'>Tujuan</Heading>
             <ul className='leading-8'>
               <li>Mempermudah pengumpulan dan analisis data terkait pemberdayaan perempuan dan perlindungan anak.</li>
               <li>Meningkatkan efisiensi dalam proses pengolahan dan pelaporan data.</li>
