@@ -35,9 +35,15 @@ export const getUserInstanceId = async () => {
 
 export const getAllUsers = async () => {
   try {
+    const currentUser = await getCurrentUser();
     return await db.user.findMany({
       include: {
         instance: true,
+      },
+      where: {
+        NOT: {
+          id: currentUser?.id,
+        },
       },
     });
   } catch (err) {
