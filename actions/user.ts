@@ -43,3 +43,15 @@ export const changeInstanceUser = async (
     console.error(err);
   }
 };
+export const deleteUserWithId = async (id: string) => {
+  try {
+    await db.user.delete({
+      where: {
+        id,
+      },
+    });
+    revalidatePath("/admin/users");
+  } catch (err) {
+    console.error(err);
+  }
+};

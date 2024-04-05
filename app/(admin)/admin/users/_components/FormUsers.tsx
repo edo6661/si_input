@@ -13,8 +13,8 @@ import FormInput from "@/components/FormInput";
 import { createRelease } from "@/actions/release";
 import FormSelect from "@/components/FormSelect";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Instance } from "@prisma/client";
-import { changeInstanceUser } from "@/actions/user";
+import { Data, Instance } from "@prisma/client";
+import { changeInstanceUser, deleteUserWithId } from "@/actions/user";
 
 export const formUserSchema = z.object({
   instanceId: z.string().min(1, {
@@ -29,12 +29,12 @@ interface FormUsersProps {
   instances: Instance[]
   instancesWithoutUser: Instance[]
   userId: string;
+  data: Data[]
 }
 
 export default function FormUsers(
-  { instanceId, instances, userId, instancesWithoutUser }: FormUsersProps
+  { instanceId, instances, userId, instancesWithoutUser, data }: FormUsersProps
 ) {
-  const router = useRouter();
   const [isPending, startTransition] = useTransition();
 
   const form = useForm<z.infer<typeof formUserSchema>>({
@@ -62,6 +62,18 @@ export default function FormUsers(
         });
     });
   }
+  const deleteUser = () => {
+    startTransition(() => {
+      deleteUserWithId(userId)
+        .then(() => {
+          if (data.length > 0) return toast.error("User has data, cannot be deleted");
+          toast.success("User deleted successfully");
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    });
+  }
 
   return (
     <Form {...form}>
@@ -76,9 +88,16 @@ export default function FormUsers(
           placeholder="Select instance"
 
         />
-        <Button type="submit" disabled={isPending}>
-          Submit
-        </Button>
+        <div className="fl-ic justify-between">
+          <Button type="submit" disabled={isPending}>
+            Submit
+          </Button>
+          <Button type="button" variant="destructive" disabled={isPending}
+            onClick={deleteUser}
+          >
+            Delete
+          </Button>
+        </div>
       </form>
     </Form>
   );

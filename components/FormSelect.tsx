@@ -31,7 +31,7 @@ const FormSelect = ({
   // label,
   data,
 }: // description
-FormSelectProps) => {
+  FormSelectProps) => {
   return (
     <FormField
       control={control}

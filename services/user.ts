@@ -33,16 +33,16 @@ export const getUserInstanceId = async () => {
   }
 };
 
-export const getAllUsers = async () => {
+export const getAllUsersWithoutAdmin = async () => {
   try {
-    const currentUser = await getCurrentUser();
     return await db.user.findMany({
       include: {
         instance: true,
+        data: true,
       },
       where: {
         NOT: {
-          id: currentUser?.id,
+          role: "ADMIN",
         },
       },
     });

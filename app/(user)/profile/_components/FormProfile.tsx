@@ -39,7 +39,6 @@ export default function FormProfile({ instances }: AddDataFormProps) {
   });
 
   function onSubmit(values: z.infer<typeof formProfile>) {
-    console.log(values);
     startTransition(() => {
       updateInstanceUser(values)
         .then((data) => {

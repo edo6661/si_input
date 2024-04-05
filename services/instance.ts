@@ -38,3 +38,14 @@ export const getAllInstanceWithoutUser = async () => {
     console.error(err);
   }
 };
+export const getInstanceById = async (id: string) => {
+  try {
+    return db.instance.findUnique({
+      where: {
+        id,
+      },
+    });
+  } catch (err) {
+    console.error(err);
+  }
+};

@@ -1,13 +1,15 @@
 import { Heading } from '@/components/ui/heading'
-import { getAllUsers } from '@/services/user'
+import { getAllUsersWithoutAdmin } from '@/services/user'
 import React from 'react'
 import FormUsers from './_components/FormUsers'
 import { getAllInstance, getAllInstanceWithoutUser } from '@/services/instance'
 
 const UsersPage = async () => {
-  const users = await getAllUsers()
+  const users = await getAllUsersWithoutAdmin()
   const instances = await getAllInstance()
   const instancesWithoutUser = await getAllInstanceWithoutUser()
+
+
   return (
     <section className='p-avoid-nav'>
       <Heading>
@@ -24,6 +26,7 @@ const UsersPage = async () => {
                 instances={instances!}
                 userId={user.id}
                 instancesWithoutUser={instancesWithoutUser!}
+                data={user.data}
               />
             </div>
           )

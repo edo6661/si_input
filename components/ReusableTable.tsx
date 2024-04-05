@@ -15,28 +15,38 @@ import { DatasProps } from "@/types";
 import DynamicTableHead from "./DynamicTableHead";
 import { Heading } from "./ui/heading";
 import Link from "next/link";
+import { Input } from "./ui/input";
+import { Search } from "lucide-react";
+import { Button } from "./ui/button";
+import SearchForm from "./SearchForm";
 
 interface ReusableTableProps {
   allData: DatasProps[];
 }
 
 export default async function ReusableTable({ allData }: ReusableTableProps) {
-  if (!allData.length)
-    return <Heading className="text-center">Empty Data</Heading>;
 
   return (
-    <Table  >
-      <TableCaption>A list of your recent Data.</TableCaption>
-      <TableHeader>
-        <TableRow>
-          <DynamicTableHead />
-        </TableRow>
-      </TableHeader>
-      <TableBody>
-        {allData?.map((data) => (
-          <ReusableDataTable {...data} key={data.id} />
-        ))}
-      </TableBody>
-    </Table>
+    <>
+      <div className="container">
+        <SearchForm />
+        {!allData.length && (
+          <Heading className="text-center">Empty Data</Heading>
+        )}
+        <Table>
+          <TableCaption>A list of your recent Data.</TableCaption>
+          <TableHeader>
+            <TableRow>
+              <DynamicTableHead />
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {allData?.map((data) => (
+              <ReusableDataTable {...data} key={data.id} />
+            ))}
+          </TableBody>
+        </Table>
+      </div>
+    </>
   );
 }

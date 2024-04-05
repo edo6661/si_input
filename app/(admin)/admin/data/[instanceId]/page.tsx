@@ -1,24 +1,36 @@
+import Pagination from "@/components/Pagination";
 import ReusableDataTable from "@/components/ReusableDataTable";
 import ReusableTable from "@/components/ReusableTable";
-import { getAllDataByInstanceId, getAllDataByInstanceIdAndUserId } from "@/services/data";
+import { getAllDataByInstanceId, getAllDataByInstanceIdAndUserId, getAllDataByInstanceIdWithPaginationSearch } from "@/services/data";
 import { getCurrentUser } from "@/services/user";
+import { SearchParamsType } from "@/types";
 import React from "react";
 
-interface InstancePageProps {
+interface InstancePageProps extends SearchParamsType {
   params: {
     instanceId: string;
   };
 }
 
-const InstancePage = async ({ params }: InstancePageProps) => {
-  const data = await getAllDataByInstanceId(
+const InstancePage = async ({ params, searchParams }: InstancePageProps) => {
+  const query = searchParams.query || '';
+  const currentPage = searchParams.page || 1;
+  const limit = searchParams.limit || 4;
+
+  const data = await getAllDataByInstanceIdWithPaginationSearch(
     params.instanceId,
+    currentPage,
+    limit,
+    query
   );
 
 
   return (
     <section className="p-avoid-aside">
-      <ReusableTable allData={data!} />
+
+      <ReusableTable allData={data?.data!} />
+      <Pagination totalPages={data?.totalPages!} />
+
     </section>
   );
 };

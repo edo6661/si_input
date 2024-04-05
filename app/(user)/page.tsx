@@ -14,7 +14,6 @@ export const metadata: Metadata = {
 const UserPage = async () => {
 
   const currentUser = await getCurrentUser();
-  console.log(currentUser)
 
   return (
     <>

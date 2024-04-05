@@ -11,3 +11,11 @@ export interface DatasProps extends Data {
   release: Release;
 }
 export type InstanceData = Instance & { data: Data[] };
+
+export interface SearchParamsType {
+  searchParams: {
+    query?: string;
+    page?: number;
+    limit?: number;
+  }
+}

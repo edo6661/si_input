@@ -1,10 +1,14 @@
+import Pagination from "@/components/Pagination";
 import ReusableDataTable from "@/components/ReusableDataTable";
 import ReusableTable from "@/components/ReusableTable";
-import { getAllDataByInstanceIdAndUserIdAndCategoryIdAndReleaseId } from "@/services/data";
+import { Heading } from "@/components/ui/heading";
+import { getAllDataByInstanceIdAndUserIdAndCategoryIdAndReleaseId, getAllDataByInstanceIdAndUserIdAndCategoryIdAndReleaseIdWithPaginationSearch } from "@/services/data";
+import { getInstanceById } from "@/services/instance";
 import { getCurrentUser } from "@/services/user";
+import { SearchParamsType } from "@/types";
 import React from "react";
 
-interface SpesificReleasePageProps {
+interface SpesificReleasePageProps extends SearchParamsType {
   params: {
     categoryId: string;
     instanceId: string;
@@ -12,18 +16,33 @@ interface SpesificReleasePageProps {
   };
 }
 
-const SpesificReleasePage = async ({ params }: SpesificReleasePageProps) => {
+const SpesificReleasePage = async ({ params, searchParams }: SpesificReleasePageProps) => {
+  const query = searchParams.query || '';
+  const currentPage = searchParams.page || 1;
+  const limit = searchParams.limit || 4;
+
   const user = await getCurrentUser();
-  const data = await getAllDataByInstanceIdAndUserIdAndCategoryIdAndReleaseId(
+  const data = await getAllDataByInstanceIdAndUserIdAndCategoryIdAndReleaseIdWithPaginationSearch(
     params.instanceId,
     user?.id!,
     params.categoryId,
-    params.releaseId
+    params.releaseId,
+    currentPage,
+    limit,
+    query
+
   );
+  const instance = await getInstanceById(user?.instanceId!);
+
 
   return (
-    <section className="p-avoid-aside">
-      <ReusableTable allData={data!} />
+    <section className="p-avoid-nav flex flex-col gap-2 items-center">
+      <Heading>
+        {instance?.nama}
+      </Heading>
+      <ReusableTable allData={data!.data} />
+      <Pagination totalPages={data?.totalPages!} />
+
     </section>
   );
 };
