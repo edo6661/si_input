@@ -2,6 +2,8 @@ generator client {
   provider = "prisma-client-js"
 }
 
+// ! ini itu buat nge integrasikan aplikasi nya dengan database, disitu provider nya itu cockroach db, tapi default cockroach db itu memakai posgresql
+// ! postgresql://wafy:kimq5WQ2bV0M2lQPmcvOug@drag-drop-8710.8nk.gcp-asia-southeast1.cockroachlabs.cloud:26257/si_input?sslmode=verify-full
 datasource db {
   provider = "cockroachdb"
   url      = env("DATABASE_URL")

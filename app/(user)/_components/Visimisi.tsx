@@ -2,12 +2,12 @@ import { Heading } from "@/components/ui/heading";
 import React from "react";
 
 const VisiMisi = () => {
-  return <section id="visimisi" >
+  return <section id="visimisi" className="container" >
     <div className="container">
-        <div className="fl-ic justify-center pb-10">
-          <Heading className='style-visimisi' >VISI MISI</Heading>
-        </div>
-    </div>  
+      <div className="fl-ic justify-center pb-10">
+        <Heading className='style-visimisi' >VISI MISI</Heading>
+      </div>
+    </div>
     <article className="container-visi-misi container">
       <div>
         <Heading className="h2">VISI</Heading>

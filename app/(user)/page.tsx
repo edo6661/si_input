@@ -20,7 +20,7 @@ const UserPage = async () => {
       <div className="space-y-8">
         <UserHero />
         <Profile />
-        <VisiMisi />
+        {/* <VisiMisi /> */}
       </div>
     </>
   );

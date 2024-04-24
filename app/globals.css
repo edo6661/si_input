@@ -136,9 +136,9 @@
   .container-profile {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap :36px;
+    gap: 36px;
   }
-  .container .h1{
+  .container .h1 {
     font-size: 2rem;
     font-weight: 800;
   }
@@ -146,10 +146,10 @@
     list-style: circle;
     font-size: 1rem;
   }
-  .container-profile .h2{
-      font-size: 1.2rem;
-      font-weight: 800;
-      text-decoration: 2px underline;
+  .container-profile .h2 {
+    font-size: 1.2rem;
+    font-weight: 800;
+    text-decoration: 2px underline;
   }
   .container-profile span {
     border-bottom: 1px solid;
@@ -162,15 +162,14 @@
   /* STRUKTUR ORGANISASI */
 
   .struktur-organisasi {
-    
   }
   /* VISIMISI */
-  .container-visi-misi .h2{
+  .container-visi-misi .h2 {
     font-size: 1.2rem;
     font-weight: 800;
-    text-decoration:2px underline;
+    text-decoration: 2px underline;
   }
-  .container .style-visimisi{
+  .container .style-visimisi {
     font-size: 2rem;
     font-weight: 800;
   }
