@@ -5,7 +5,6 @@ import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
 import { CircleArrowLeft, CircleArrowRight } from 'lucide-react'
-import { cn } from '@/lib/utils'
 
 const Profile = () => {
   const [slide, setSlide] = useState(0)
@@ -13,11 +12,9 @@ const Profile = () => {
   const prevSlide = () => setSlide(prev => prev === 1 ? 0 : 1)
 
 
-
-
   return (
     <>
-      <div className='relative min-h-screen overflow-x-hidden '>
+      <div className='relative min-h-screen overflow-x-hidden overflow-y-hidden '>
         <Button
           onClick={prevSlide}
           className='absolute top-1/2 left-0 transform -translate-y-1/2 px-2 py-0 z-10'
@@ -25,7 +22,7 @@ const Profile = () => {
         >
           <CircleArrowLeft />
         </Button>
-        <motion.section id="visimisi" className="container absolute"
+        <motion.section id="visimisi" className="container absolute w-full"
           animate={{ x: slide === 0 ? 0 : "-100%" }}
           transition={{ type: "spring" }}
           initial={{

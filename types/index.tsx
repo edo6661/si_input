@@ -19,3 +19,15 @@ export interface SearchParamsType {
     limit?: number;
   }
 }
+
+export interface CategoryWithData extends Category {
+  data: Data[];
+}
+
+export interface InstanceWithData extends Instance {
+  data: Data[];
+}
+
+export interface ReleaseWithData extends Release {
+  data: Data[]
+}

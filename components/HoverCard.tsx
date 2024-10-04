@@ -34,7 +34,7 @@ export function CustomHoverCard({ title, data }: CustomHoverCardProps) {
         {data.map((data) => {
           const activeData = pathname === data.href;
           return (
-            <div key={data.href}>
+            <div key={data.href} className="relative">
               <Button
                 asChild
                 variant="link"
@@ -44,6 +44,7 @@ export function CustomHoverCard({ title, data }: CustomHoverCardProps) {
               >
                 <Link href={data.href}>{data.label}</Link>
               </Button>{" "}
+
             </div>
           );
         })}

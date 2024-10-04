@@ -5,6 +5,10 @@ import { CustomHoverCard } from "./HoverCard";
 const AdminLinks = () => {
   const links = [
     {
+      href: "/admin/dashboard",
+      label: "Dashboard",
+    },
+    {
       href: "/admin/add-instance",
       label: "Add Instance",
     },
@@ -36,6 +40,7 @@ const AdminLinks = () => {
       href: "/admin/users",
       label: "Users",
     },
+
   ];
   return (
     <>
